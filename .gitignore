@@ -1,0 +1,37 @@
+# python
+*.py[co~]
+__pycache__
+# Ignoring build dir
+/build
+/dist
+*.egg-info/
+*.eggs/
+# Coverage reports
+/.coverage*
+/htmlcov
+# Ignoring profiling reports
+*.prof
+*.lprof
+# Tox and pytest
+/.tox
+/.cache
+/.pytest_cache
+# Virtualenv
+/.env*
+# IDE Files
+/.idea
+/.benchmarks
+# Sonar
+/.scannerwork
+# Type checkers
+/.mypy_cache
+/.pyre
+/.pytype
+# Pre-commit cache
+/.pre-commit-cache
+# Hypothesis
+/.hypothesis
+# Some commits ignored by git blame
+/.git-blame-ignore-revs
+# Some tools with create this
+uv.lock

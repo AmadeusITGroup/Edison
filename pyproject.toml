@@ -1,0 +1,182 @@
+[build-system]
+requires = ["setuptools>=77", "setuptools-scm[simple]>=10.1"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "edison-parser"
+dynamic = ["version"]
+description = "An EDIFACT parser with a real syntax tree."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  {name = "Alex Prengère", email = "alex.prengere@gmail.com"},
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pydot>=3.0.0",
+    "typing-extensions>=4.10",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.15",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://github.com/AmadeusITGroup/edison"
+Changelog = "https://github.com/AmadeusITGroup/edison/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]  # where to look; default is ["."]
+include = ["edison*",]  # only include edison and its subpackages
+
+[dependency-groups]
+test = [
+    "pytest>=9.0",
+    "pytest-benchmark>=5.0",
+    "pytest-cov>=5.0",
+    "pytest-xdist>=3.6",
+]
+typing = []
+
+[tool.tox]
+requires = ["tox>=4.22"]
+isolated_build = true
+skip_missing_interpreters = true
+env_list = [
+  "py312",
+  "py313",
+  "py314",
+  "py315",
+  "py315t",
+  "pypy312",
+]
+
+[tool.tox.env_run_base]
+package = "wheel"
+wheel_build_env = ".pkg"
+dependency_groups = ["test"]
+commands = [[
+    "py.test", { replace = "posargs", default = [], extend = true }
+]]
+
+[tool.tox.env.coverage]
+base_python = ["python3.14"]
+package = "editable"
+commands = [[
+    "py.test",
+    "--cov",
+    "--cov-context=test",
+    "--cov-report", "html",
+    { replace = "posargs", default = [], extend = true },
+]]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+markers = [
+    "benchmark: performance benchmarks",
+    "freeze_time",
+]
+addopts = [
+  "--strict-markers",
+  "--doctest-modules",
+  "--doctest-glob='*.md'",
+  "--import-mode=importlib",
+]
+doctest_optionflags = [
+    "NORMALIZE_WHITESPACE",
+    "IGNORE_EXCEPTION_DETAIL",
+    "ELLIPSIS",
+]
+norecursedirs = [
+    ".*",
+    "__pycache__",
+    "build",
+    "dist",
+    "*.egg-info",
+    "htmlcov",
+]
+filterwarnings = []
+
+[tool.coverage.run]
+branch = true
+source = [
+    "src",
+    "tests",
+]
+
+[tool.coverage.report]
+fail_under = 90
+exclude_lines = [
+    '\# pragma: no cover\b',
+    '^\s*raise AssertionError\b',
+    '^\s*raise NotImplementedError\b',
+    '^\s*return NotImplemented\b',
+    '^\s*pytest.fail\b',
+    '^\s*pytest.skip\b',
+    '^\s*except ImportError\b',
+    '^\s*if TYPE_CHECKING:$',
+    "if __name__ == ['\"]__main__['\"]:$",
+    '^def main\(\):$',
+]
+
+[tool.coverage.html]
+show_contexts = true
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+extend-exclude = ["*_pb2.py"]
+
+[tool.ruff.lint]
+select = [
+    "F",  # pyflakes
+    "E",  # pycodestyle
+    "W",  # pycodestyle
+    "UP",  # pyupgrade
+    "YTT",  # flake8-2020
+    "ASYNC",  # flake8-async
+    "B",  # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "T10",  # flake8-debugger
+    "ISC",  # flake8-implicit-str-concat
+    "ICN",  # flake8-import-conventions
+    "G",  # flake8-logging-format
+    "PIE",  # flake8-pie
+    "PYI",  # flake8-pyi
+    "RSE",  # flake8-raise
+    "TCH",  # flake8-type-checking
+    "INT",  # flake8-gettext
+    "PD",  # pandas-vet
+    "PGH",  # pygrep-hooks
+    "FLY",  # flynt
+    "NPY",  # NumPy-specific rules
+    "AIR",  # Airflow
+    "RUF",  # Ruff-specific rules
+]
+ignore = [
+    "mutable-class-default",
+    "unsorted-dunder-all",
+]
+preview = true
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.mypy]
+python_version = "3.12"
+exclude = [
+    '(^|/)build/',
+]

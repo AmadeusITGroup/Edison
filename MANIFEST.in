@@ -1,0 +1,7 @@
+exclude CHANGELOG.md
+exclude CONTRIBUTING.md
+exclude .gitignore
+exclude .pre-commit-config.yaml
+recursive-exclude .github *
+recursive-exclude docs *
+recursive-exclude tests *
