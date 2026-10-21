@@ -93,7 +93,7 @@ print(PIZZAQParser.show(edi))
 ```
 
 <div align="center">
-    <img src="https://raw.githubusercontent.com/AmadeusITGroup/Edison/main/docs/Image.png" width="360" height="360" alt="Edison">
+    <img src="https://raw.githubusercontent.com/AmadeusITGroup/Edison/main/docs/Image.png" width="364" alt="Edison">
     <p><strong>Tree-based structure.</strong></p>
 </div>
 
