@@ -1,7 +1,13 @@
 <div align="center">
-    <img src="docs/edison.png" width="360" height="360" alt="Edison">
+    <img src="https://raw.githubusercontent.com/AmadeusITGroup/Edison/main/docs/edison.png" width="360" height="360" alt="Edison">
     <h1>Edison</h1>
     <p><strong>An EDIFACT parser with a real syntax tree.</strong></p>
+    <p>
+        <a href="https://github.com/AmadeusITGroup/Edison/actions/workflows/ci.yml"><img src="https://github.com/AmadeusITGroup/Edison/actions/workflows/ci.yml/badge.svg" alt="Build"></a>
+        <a href="https://pypi.org/project/edison-parser/"><img src="https://img.shields.io/pypi/v/edison-parser.svg" alt="Version"></a>
+        <a href="https://pypi.org/project/edison-parser/"><img src="https://img.shields.io/pypi/pyversions/edison-parser.svg" alt="Python versions"></a>
+      <!--  <a href="https://pepy.tech/project/edison-parser"><img src="https://static.pepy.tech/badge/edison-parser" alt="Downloads"></a>  -->
+    </p>
 </div>
 
 Edison is a Python library for parsing EDIFACT messages. Instead of treating a
@@ -87,7 +93,7 @@ print(PIZZAQParser.show(edi))
 ```
 
 <div align="center">
-    <img src="docs/Image.png" width="360" height="360" alt="Edison">
+    <img src="https://raw.githubusercontent.com/AmadeusITGroup/Edison/main/docs/Image.png" width="360" height="360" alt="Edison">
     <p><strong>Tree-based structure.</strong></p>
 </div>
 
