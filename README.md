@@ -298,9 +298,12 @@ finishes.
 <details>
 <summary>Transition graphs</summary>
 
-`pydot` is installed with Edison. To write PNG files, make sure Graphviz is
-available on your system, then call `build_dot_object()` on a `BaseParser`
-subclass.
+Internally, Edison builds a directed graph of transitions between segments, when the parser class is created.  
+Each node is a specific segment, and each edge is a valid transition to the next segment.  
+With this, parsing is just a walk through the graph, and validation is checking if the path exists.
+
+You can visualize the transition graph with `build_dot_object()`, which returns a `pydot.Dot` object.  
+`pydot` is installed with Edison. To write PNG files, make sure Graphviz is available on your system.
 
 ```python
 from edison import BaseParser
@@ -324,6 +327,12 @@ class Parser(BaseParser):
 dot = Parser.build_dot_object()
 dot.write_png("transitions.png")
 ```
+
+Here is the resulting graph for the above schema.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/AmadeusITGroup/Edison/main/docs/transitions.png" alt="pydot">
+</p>
 
 You can pass the same version selector used by parsing, and hide upward links
 for a simpler tree-like graph:
