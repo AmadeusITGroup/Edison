@@ -11,16 +11,16 @@
 </div>
 
 Edison is a Python library for parsing EDIFACT messages. Instead of treating a
-message as a flat stream of segments, it models valid messages as a tree of
-transitions. You define the schema once, then parse, validate, or pretty-print
+message as a flat stream of segments, it models valid messages as a tree.
+You define the schema once, then parse, validate, or pretty-print
 messages against that structure.
 
 ## Highlights
 
 - Define EDIFACT syntax trees directly in Python.
+- Segments can define groups of child segments, which can be conditional, mandatory, or repeatable.
 - Attach parsing callbacks to the segments you care about.
 - Select schemas by message version.
-- Model conditional, mandatory, and repeatable segments.
 - Handle escaped EDIFACT separators and EBCDIC control characters.
 - Properly tokenize segments with specified lengths like `BLB`
 - Export transition graphs with `pydot`.
