@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3 (2026/10/21)
+
+- Documentation updates
+
 ## 0.2 (2026/10/21)
 
 - Fix README rendering in [PyPI](https://pypi.org/project/edison-parser/)
