@@ -84,13 +84,18 @@ REF+3'
 UNT+19+1'
 """
 
+# Create the parser and parse this EDIFACT message.
+# The `summary` attribute is populated by the callbacks.
 parser = PIZZAQParser()
 parser.parse(edi)
+parser.summary  # {"MARGARITA": 2, "PESTO": 1}
 
-assert parser.summary == {"MARGARITA": 2, "PESTO": 1}
-assert PIZZAQParser.validate(edi)
-print(PIZZAQParser.show(edi))
+# Validate and pretty-print the message.
+PIZZAQParser.validate(edi)  # True/False
+PIZZAQParser.show(edi)  # to print
 ```
+
+Here is the output of `PIZZAQParser.show(edi)`.
 
 <div align="center">
     <img src="https://raw.githubusercontent.com/AmadeusITGroup/Edison/main/docs/Image.png" width="364" alt="Edison">
