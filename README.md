@@ -49,12 +49,12 @@ class PIZZAQParser(BaseParser):
         (0, 0): [
             ["UNH"],
             ["CVR"],
-            ["REF"],
+            ["REF"],  # one type of REF segment
             [
                 "PIZ",
                 [
                     ["TYP", [], "parse_typ"],
-                    ["REF", [], "parse_ref"],
+                    ["REF", [], "parse_ref"],  # another type of REF segment
                 ],
             ],
             ["UNT"],
@@ -66,9 +66,12 @@ class PIZZAQParser(BaseParser):
         self.pizza = None
 
     def parse_typ(self, segment: str):
+        # Executed when the parser sees a "TYP" segment. The segment is passed as a string.
         self.pizza = segment[4:]
 
     def parse_ref(self, segment: str):
+        # Executed when the parser sees a "REF" segment. The segment is passed as a string.
+        # Only executed on the "second" type of "REF" segment!
         refs = segment[4:].split("*")
         self.summary[self.pizza] = len(refs)
 
