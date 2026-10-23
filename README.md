@@ -7,7 +7,7 @@
         <a href="https://pypi.org/project/edison-parser/"><img src="https://img.shields.io/pypi/v/edison-parser.svg" alt="Version"></a>
         <a href="https://pypi.org/project/edison-parser/"><img src="https://img.shields.io/pypi/pyversions/edison-parser.svg" alt="Python versions"></a>
         <a href="https://github.com/AmadeusITGroup/Edison/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
-      <!--  <a href="https://pepy.tech/project/edison-parser"><img src="https://static.pepy.tech/badge/edison-parser" alt="Downloads"></a>  -->
+        <a href="https://pepy.tech/project/edison-parser"><img src="https://static.pepy.tech/badge/edison-parser" alt="Downloads"></a>
     </p>
 </div>
 
